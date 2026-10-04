@@ -44,7 +44,7 @@ It never invents URLs, titles, channels or verification claims.
 ## Repository layout
 
 ```
-<repo root>/                            # GitHub repo root = plugin root
+<plugin root>/                          # archive root / GitHub repo root
 ├── plugin.json                         # Manifest (agent-plugins schema + com.openai interface)
 ├── .codex-plugin/
 │   └── plugin.json                     # Manifest (Codex plugin format, points to ./skills)
