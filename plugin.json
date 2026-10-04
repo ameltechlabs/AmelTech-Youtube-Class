@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "ameltech-youtube-class",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Subject-specific animated and cartoon YouTube learning-video matching for every heading in uploaded study material.",
   "author": {
     "name": "AmelTech Lab's"
@@ -10,10 +10,10 @@
     "com.openai": {
       "interface": {
         "displayName": "AmelTech Youtube Class",
-        "shortDescription": "Match headings to YouTube videos",
+        "shortDescription": "Headings to YouTube videos",
         "longDescription": "Analyze PDF, PPT, PPTX, and DOCX study material and provide an additional direct YouTube video match for each meaningful heading. Prioritize cartoon, animation, animated explainers, and visual demonstrations when they accurately teach the exact subject, while retaining existing learning-resource recommendations and clearly verifying links.",
         "developerName": "AmelTech Lab's",
-        "category": "Education",
+        "category": "Education & Research",
         "capabilities": [
           "Interactive"
         ],
@@ -24,5 +24,6 @@
         ]
       }
     }
-  }
+  },
+  "license": "MIT"
 }

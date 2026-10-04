@@ -1,6 +1,6 @@
 # AmelTech Youtube Class
 
-**Version 1.1.0** · MIT License · by AmelTech Lab's
+**Version 1.1.1** · MIT License · by AmelTech Lab's
 
 A skill-based plugin that reads educational material (PDF, PPT, PPTX, DOCX), finds every meaningful heading, and matches each one to a **verified, direct YouTube video** — with separate lanes for a normal learning resource, a visual resource, and an animated/cartoon resource.
 
@@ -44,7 +44,7 @@ It never invents URLs, titles, channels or verification claims.
 ## Repository layout
 
 ```
-ameltech-youtube-class/
+<repo root>/                            # GitHub repo root = plugin root
 ├── plugin.json                         # Manifest (agent-plugins schema + com.openai interface)
 ├── .codex-plugin/
 │   └── plugin.json                     # Manifest (Codex plugin format, points to ./skills)
@@ -65,18 +65,31 @@ ameltech-youtube-class/
 
 ## Installation
 
-The package is already structured for plugin upload: the folder `ameltech-youtube-class/` contains both manifests and the `skills/` directory.
+**Rule that matters most:** the plugin root must be the **repository root**. GitHub's *Code → Download ZIP* wraps the repo in one folder (`AmelTech-Youtube-Class-main/`). ChatGPT accepts exactly one plugin root, either at the archive root or inside a single top-level folder, so `plugin.json` and `skills/` must sit directly inside that folder, not one level deeper.
 
-1. Download the ZIP.
-2. Upload it through your ChatGPT / Codex plugin installation flow.
-3. Start a chat, attach a PDF, PPT, PPTX or DOCX, and use one of the default prompts, for example:
+Correct repo root:
+
+```
+plugin.json
+.codex-plugin/plugin.json      (optional for ChatGPT; plugin.json is the required manifest)
+skills/youtube-class-workflow/SKILL.md
+README.md
+LICENSE
+```
+
+Steps:
+
+1. Put those files at the repo root on GitHub (create files with their full path, e.g. `skills/youtube-class-workflow/SKILL.md`, if you cannot upload folders).
+2. Open the repo, choose **Code → Download ZIP**.
+3. In ChatGPT go to **Plugins → New Plugin**, upload that ZIP, then **Add plugin**.
+4. Attach a PDF, PPT, PPTX or DOCX and use one of the default prompts:
    - *Analyze this study material and find the best YouTube video for every heading.*
    - *Map each document heading to a closely matching YouTube learning video and explain the match.*
    - *Create a heading-by-heading YouTube study map from this document.*
 
-**Web access:** live verification needs the host to have web search/browsing enabled. Without it, the plugin is designed to return search-ready queries instead of direct links (see [Failure handling](#failure-handling)).
+Common upload error: *"Agent Plugins package must contain at least one valid skill or MCP server"* means ChatGPT could not find `skills/<name>/SKILL.md` at the plugin root. Check that the folder `skills` is visible at the top level of the repo.
 
-For GitHub, commit the folder contents as-is. `LICENSE` is detected automatically.
+**Web access:** live verification needs the host to have web search/browsing enabled. Without it, the plugin returns search-ready queries instead of direct links (see [Failure handling](#failure-handling)).
 
 ---
 
@@ -324,6 +337,7 @@ Three checklists run before delivery:
 | 1.0.8 | Q | Two-stage retrieval, adaptive search budget, evidence hierarchy, hard rejection gates, coverage ledger |
 | 1.0.9 | R | Visual-resource lane, two independent gates, query ladder, candidate matrix |
 | 1.1.0 | S | Direct YouTube video resolution, search-page rejection, `site:youtube.com/watch` ladder, direct-link field rules |
+| 1.1.1 | — | Packaging fix only: category set to `Education & Research`, short description shortened, `license` added to `plugin.json`. `SKILL.md` unchanged. |
 
 Section M is a runtime response convention: after a completed task, the assistant appends a credit line for the author as a separate paragraph, outside tables, files and metadata.
 
