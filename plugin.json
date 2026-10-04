@@ -1,8 +1,8 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "ameltech-youtube-class",
-  "version": "1.1.1",
-  "description": "Subject-specific animated and cartoon YouTube learning-video matching for every heading in uploaded study material.",
+  "version": "1.5.0",
+  "description": "Subject-specific YouTube video and notes-PDF matching for every heading in study material, plus beginner-friendly Arduino, ESP32, and ESP8266 project guides.",
   "author": {
     "name": "AmelTech Lab's"
   },
@@ -10,17 +10,17 @@
     "com.openai": {
       "interface": {
         "displayName": "AmelTech Youtube Class",
-        "shortDescription": "Headings to YouTube videos",
-        "longDescription": "Analyze PDF, PPT, PPTX, and DOCX study material and provide an additional direct YouTube video match for each meaningful heading. Prioritize cartoon, animation, animated explainers, and visual demonstrations when they accurately teach the exact subject, while retaining existing learning-resource recommendations and clearly verifying links.",
+        "shortDescription": "Study maps & Arduino guides",
+        "longDescription": "Two skills in one plugin. (1) Study material: upload PDF, PPT, PPTX, or DOCX and every meaningful heading is matched separately, with or without a request, to a YouTube learning video, a direct cartoon or animated video link, and a direct online notes PDF link, all checked for close title and subject match. (2) Maker projects: ask for any Arduino, ESP32, or ESP8266 project, or upload your code or circuit diagram, and get an error-checked design with a parts list, an easy connection table, step-by-step beginner instructions, complete code, functions and features, limitations, important notes to avoid mistakes, troubleshooting, and the four best-matching verified YouTube videos. The plugin states exactly what was checked and never claims unverified code is error-free.",
         "developerName": "AmelTech Lab's",
         "category": "Education & Research",
         "capabilities": [
           "Interactive"
         ],
         "defaultPrompt": [
-          "Analyze this study material and find the best YouTube video for every heading.",
-          "Map each document heading to a closely matching YouTube learning video and explain the match.",
-          "Create a heading-by-heading YouTube study map from this document."
+          "Analyze this study material and give videos and notes PDFs for every heading.",
+          "Build an ESP32 temperature monitor with wiring table, code, and 4 videos.",
+          "Check my Arduino code for errors and give a fixed version with steps."
         ]
       }
     }
